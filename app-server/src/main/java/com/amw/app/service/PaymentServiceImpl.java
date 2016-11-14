@@ -17,6 +17,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Autowired
     private PaymentFilterService paymentFilterService;
 
+    @Override
     public List<Payment> getListBy(Long filterId) {
         PaymentFilter filter = paymentFilterService.getById(filterId);
 

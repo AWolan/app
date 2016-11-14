@@ -16,4 +16,9 @@ public class PaymentFilterServiceImpl implements PaymentFilterService {
         return paymentFilterRepository.findOne(id);
     }
 
+    @Override
+    public PaymentFilter createFilter(PaymentFilter filter) {
+        return paymentFilterRepository.save(filter);
+    }
+
 }

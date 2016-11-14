@@ -6,4 +6,4 @@ app-server/target/
 app-server/src/main/generated/
 app-server/src/test/generated/
 app-ui/target/
-app-webapp/target/
+app-rest/target/
