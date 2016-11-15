@@ -8,5 +8,5 @@ import java.io.Serializable;
 /**
  * .
  */
-public interface BaseDao<T, K extends Serializable> extends JpaRepository<T, K>, QueryDslPredicateExecutor<T> {
+public interface BaseDao<T, K extends Serializable> extends BaseDaoCustom<T, K>, QueryDslPredicateExecutor<T> {
 }

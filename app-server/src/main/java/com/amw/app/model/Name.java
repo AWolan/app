@@ -1,6 +1,7 @@
 package com.amw.app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Gathers information about name.
@@ -8,6 +9,8 @@ import javax.persistence.Entity;
 @Entity
 public class Name {
 
+    @Id
+    private Long id;
     private String firstName;
     private String lastName;
     private String companyName;

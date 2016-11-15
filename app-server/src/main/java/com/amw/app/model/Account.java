@@ -1,6 +1,7 @@
 package com.amw.app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Currency;
 
 /**
@@ -9,6 +10,7 @@ import java.util.Currency;
 @Entity
 public class Account {
 
+    @Id
     private Long id;
     // TODO what with account where there is more than one owner?
     private Person owner;

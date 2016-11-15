@@ -1,6 +1,7 @@
 package com.amw.app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 public class Payment {
 
+    @Id
     private Long id;
     private PaymentGroup group;
     private Account target;

@@ -3,6 +3,7 @@ package com.amw.app.model;
 import com.amw.app.exception.AccountNumberException;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Gathers information about account number.
@@ -21,6 +22,8 @@ public class AccountNumber {
     private static final Integer BN_LENGTH = 8;
     private static final Integer AN_LENGTH = 16;
 
+    @Id
+    private Long id;
     private String iban;
     private Long controlSum;
     private Long bankNumber;

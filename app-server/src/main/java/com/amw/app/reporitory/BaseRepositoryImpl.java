@@ -4,6 +4,8 @@ import com.amw.app.dao.BaseDao;
 import com.querydsl.core.types.Predicate;
 import com.querydsl.jpa.impl.JPAQuery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.JpaEntityInformation;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
@@ -15,8 +17,8 @@ public class BaseRepositoryImpl<T, K extends Serializable> {
 
     @Autowired
     protected BaseDao<T, K> dao;
-    @Autowired
-    private EntityManager entityManager;
+//    @Autowired
+//    private EntityManager entityManager;
 
     protected List<T> getList(Predicate expression) {
         Iterable<T> all = dao.findAll(expression);
@@ -24,8 +26,8 @@ public class BaseRepositoryImpl<T, K extends Serializable> {
                 .collect(Collectors.toList());
     }
 
-    protected JPAQuery<T> query() {
-        return new JPAQuery<>(entityManager);
-    }
+//    protected JPAQuery<T> query() {
+//        return new JPAQuery<>(entityManager);
+//    }
 
 }

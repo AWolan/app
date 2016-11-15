@@ -6,7 +6,7 @@
     <parent>
         <artifactId>app</artifactId>
         <groupId>com.amw</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${app.version}</version>
     </parent>
 
     <artifactId>app-server</artifactId>
@@ -60,10 +60,7 @@
     </build>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>javax.servlet</groupId>-->
-            <!--<artifactId>javax.servlet-api</artifactId>-->
-        <!--</dependency>-->
+
 
         <!--<dependency>-->
             <!--<groupId>org.springframework</groupId>-->
@@ -98,6 +95,10 @@
             <artifactId>javax.persistence</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>org.eclipse.persistence.jpa</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-apt</artifactId>
         </dependency>
@@ -108,6 +109,10 @@
         <dependency>
             <groupId>com.mysema.maven</groupId>
             <artifactId>apt-maven-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <dependency>

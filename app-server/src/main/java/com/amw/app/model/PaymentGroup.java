@@ -1,6 +1,7 @@
 package com.amw.app.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Gathers information about group of payments.
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 @Entity
 public class PaymentGroup {
 
+    @Id
     private Long id;
     private String name;
 

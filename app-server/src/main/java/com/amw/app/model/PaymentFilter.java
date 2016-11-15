@@ -4,12 +4,14 @@ import com.amw.app.enums.PaymentDirection;
 import com.amw.app.enums.PaymentStatus;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
 public class PaymentFilter {
 
+    @Id
     private Long id;
     private Long ownerId;
     private PaymentDirection direction = PaymentDirection.BOTH;
