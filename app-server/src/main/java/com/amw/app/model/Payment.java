@@ -1,7 +1,6 @@
 package com.amw.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.List;
@@ -10,19 +9,34 @@ import java.util.List;
  * Gathers information about payment.
  */
 @Entity
+@Table(name = "t_payment")
 public class Payment {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name = "group_id")
     private PaymentGroup group;
+    @ManyToOne
+    @JoinColumn(name = "target_id")
     private Account target;
+    @ManyToOne
+    @JoinColumn(name = "source_id")
     private Account source;
     private Double amount;
     private Currency currency;
     private String name;
     private String details;
+    @Column(name = "execution_date")
     private LocalDateTime executionDate;
+    @Column(name = "plan_date")
     private LocalDateTime planDate;
+    @ManyToMany
+    @JoinTable(
+            name="t_payment_category",
+            joinColumns = @JoinColumn(name="payment_id", referencedColumnName="ID"),
+            inverseJoinColumns = @JoinColumn(name="category_id", referencedColumnName="ID"))
     private List<Category> categoryList;
 
     public Payment() {

@@ -21,10 +21,10 @@ public class PaymentRepositoryImpl extends BaseRepositoryImpl<Payment, Long> imp
         BooleanExpression isOwner = isOwner(filter.getOwnerId(), filter.getDirection());
         builder.and(isOwner);
 
-        if (filter.isDatSetted()) {
-            BooleanExpression isDate = isDate(filter.getStatus(), filter.getFrom(), filter.getTo());
-            builder.and(isDate);
-        }
+//        if (filter.isDatSetted()) {
+//            BooleanExpression isDate = isDate(filter.getStatus(), filter.getFrom(), filter.getTo());
+//            builder.and(isDate);
+//        }
         if (filter.isCategoryListSetted()) {
             BooleanBuilder isCategory = isCategory(filter.getCategoryList());
             builder.and(isCategory);

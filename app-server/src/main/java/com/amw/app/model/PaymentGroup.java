@@ -1,15 +1,16 @@
 package com.amw.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Gathers information about group of payments.
  */
 @Entity
+@Table(name = "t_payment_group")
 public class PaymentGroup {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 

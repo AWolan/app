@@ -1,19 +1,23 @@
 package com.amw.app.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Currency;
 
 /**
  * Gethers information about account.
  */
 @Entity
+@Table(name = "t_account")
 public class Account {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     // TODO what with account where there is more than one owner?
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Person owner;
+    @OneToOne
     private AccountNumber number;
     private Currency currency;
 

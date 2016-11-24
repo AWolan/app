@@ -2,13 +2,13 @@ package com.amw.app.model;
 
 import com.amw.app.exception.AccountNumberException;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Gathers information about account number.
  */
 @Entity
+@Table(name = "t_account_number")
 public class AccountNumber {
 
     private static final String DEFAULT_IBAN = "PL";
@@ -23,10 +23,14 @@ public class AccountNumber {
     private static final Integer AN_LENGTH = 16;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String iban;
+    @Column(name = "control_sum")
     private Long controlSum;
+    @Column(name = "bank_number")
     private Long bankNumber;
+    @Column(name = "account_number")
     private Long accountNumber;
 
     public AccountNumber() {

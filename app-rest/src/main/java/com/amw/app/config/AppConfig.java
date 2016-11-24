@@ -23,7 +23,7 @@ import javax.sql.DataSource;
 @EnableWebMvc
 @EnableSpringDataWebSupport
 @Configuration
-@ComponentScan("com.amw.app")
+@ComponentScan("com.amw.app.rest")
 //@PropertySource("classpath:/com/myco/app.properties")
 @Import(ServerConfig.class)
 public class AppConfig extends WebMvcConfigurerAdapter {

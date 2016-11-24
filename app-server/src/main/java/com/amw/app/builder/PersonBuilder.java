@@ -34,10 +34,10 @@ public class PersonBuilder extends BaseBuilder<Person> {
         return nameBuilder;
     }
 
-    public PersonBuilder name(Name name) {
-        get().setName(name);
-        return this;
-    }
+//    public PersonBuilder name(Name name) {
+//        get().setName(name);
+//        return this;
+//    }
 
     public AccountBuilder backToAccount() throws BuilderException {
         if (accountBuilder != null) {
@@ -50,14 +50,14 @@ public class PersonBuilder extends BaseBuilder<Person> {
     public Person build() throws BuilderException {
         Person person = get();
 
-        if (nameBuilder != null) {
-            Name name = nameBuilder.build();
-            person.setName(name);
-        }
-
-        if (person.getName() == null) {
-            throw new BuilderException("Person: Name is not present");
-        }
+//        if (nameBuilder != null) {
+//            Name name = nameBuilder.build();
+//            person.setName(name);
+//        }
+//
+//        if (person.getName() == null) {
+//            throw new BuilderException("Person: Name is not present");
+//        }
 
         return person;
     }
