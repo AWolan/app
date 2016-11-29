@@ -17,7 +17,9 @@ public class PaymentFilter {
     @Column(name = "owner_id")
     private Long ownerId;
     private String name;
+    @Enumerated(EnumType.STRING)
     private PaymentDirection direction = PaymentDirection.BOTH;
+    @Enumerated(EnumType.STRING)
     private PaymentStatus status = PaymentStatus.BOTH;
 //    private LocalDateTime from;
 //    private LocalDateTime to;

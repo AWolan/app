@@ -4,6 +4,7 @@ import com.amw.app.dao.BaseDaoImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -17,13 +18,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 @ComponentScan(basePackages = {"com.amw.app"})
 //@PropertySource("classpath:/com/myco/app.properties")
-@EnableJpaRepositories(basePackages = "com.amw.app.dao", repositoryBaseClass = BaseDaoImpl.class)
+@EnableJpaRepositories(basePackages = {"com.amw.app.dao"}, repositoryBaseClass = BaseDaoImpl.class)
 @EnableTransactionManagement
 public class ServerConfig {
 
@@ -46,6 +45,7 @@ public class ServerConfig {
     }
 
     @Bean
+    @DependsOn("flyway")
     public EntityManagerFactory entityManagerFactory() throws Throwable {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(jpaVendorAdapter());

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import javax.persistence.EntityManager;
 import java.io.Serializable;
 
-public class BaseDaoImpl<T, K extends Serializable> extends SimpleJpaRepository<T, K> implements BaseDaoCustom<T, K> {
+public class BaseDaoImpl<T, K extends Serializable> extends SimpleJpaRepository<T, K> implements BaseDao<T, K> {
 
     private final EntityManager entityManager;
 

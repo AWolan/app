@@ -2,25 +2,25 @@ CREATE TABLE `t_person` (
   `id` bigint(20) NOT NULL,
   `company_name` varchar(255) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
-  `is_company` bit(1) NOT NULL,
   `last_lame` varchar(255) DEFAULT NULL,
+  `is_company` bit(1) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `t_account_number` (
   `id` bigint(20) NOT NULL,
-  `account_number` bigint(20) DEFAULT NULL,
-  `bank_number` bigint(20) DEFAULT NULL,
-  `control_sum` bigint(20) DEFAULT NULL,
   `iban` varchar(255) DEFAULT NULL,
+  `bank_number` bigint(20) DEFAULT NULL,
+  `account_number` bigint(20) DEFAULT NULL,
+  `control_sum` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `t_account` (
   `id` bigint(20) NOT NULL,
-  `currency` varchar(255) DEFAULT NULL,
   `number_id` bigint(20) DEFAULT NULL,
   `owner_id` bigint(20) DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_a_owner_id` (`number_id`),
   KEY `fk_a_account_number_id` (`owner_id`),
@@ -42,15 +42,15 @@ CREATE TABLE `t_category` (
 
 CREATE TABLE `t_payment` (
   `id` bigint(20) NOT NULL,
-  `amount` double DEFAULT NULL,
-  `currency` varchar(255) DEFAULT NULL,
-  `details` varchar(255) DEFAULT NULL,
-  `execution_date` datetime DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `plan_date` datetime DEFAULT NULL,
   `group_id` bigint(20) DEFAULT NULL,
   `source_id` bigint(20) DEFAULT NULL,
   `target_id` bigint(20) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `currency` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `details` varchar(255) DEFAULT NULL,
+  `execution_date` datetime DEFAULT NULL,
+  `plan_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_p_group_id` (`group_id`),
   KEY `fk_p_source_id` (`source_id`),
@@ -61,8 +61,8 @@ CREATE TABLE `t_payment` (
 );
 
 CREATE TABLE `t_payment_category` (
-  `category_id` bigint(20) NOT NULL,
   `payment_id` bigint(20) NOT NULL,
+  `category_id` bigint(20) NOT NULL,
   KEY `fk_pc_payment_id` (`payment_id`),
   KEY `fk_pc_category_id` (`category_id`),
   CONSTRAINT `fk_pc_payment_id` FOREIGN KEY (`payment_id`) REFERENCES `t_payment` (`id`),
@@ -71,15 +71,17 @@ CREATE TABLE `t_payment_category` (
 
 CREATE TABLE `t_payment_filter` (
   `id` bigint(20) NOT NULL,
+  `owner_id` bigint(20) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `direction` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_pf_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `t_person` (`id`)
 );
 
 CREATE TABLE `t_payment_filter_category` (
-  `category_id` bigint(20) NOT NULL,
   `payment_filter_id` bigint(20) NOT NULL,
+  `category_id` bigint(20) NOT NULL,
   KEY `fk_pfc_payment_filter_id` (`payment_filter_id`),
   KEY `fk_pfc_category_id` (`category_id`),
   CONSTRAINT `fk_pfc_payment_filter_id` FOREIGN KEY (`payment_filter_id`) REFERENCES `t_payment_filter` (`id`),
