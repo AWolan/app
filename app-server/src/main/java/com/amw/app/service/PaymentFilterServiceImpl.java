@@ -5,6 +5,8 @@ import com.amw.app.reporitory.PaymentFilterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PaymentFilterServiceImpl implements PaymentFilterService {
 
@@ -17,8 +19,13 @@ public class PaymentFilterServiceImpl implements PaymentFilterService {
     }
 
     @Override
-    public PaymentFilter createFilter(PaymentFilter filter) {
+    public PaymentFilter saveFilter(PaymentFilter filter) {
         return paymentFilterRepository.save(filter);
+    }
+
+    @Override
+    public List<PaymentFilter> getList(Long ownerId) {
+        return paymentFilterRepository.findByOwnerId(ownerId);
     }
 
 }

@@ -1,4 +1,4 @@
-INSERT INTO t_person (id, company_name, first_name, last_lame, is_company)
+INSERT INTO t_person (id, company_name, first_name, last_name, is_company)
   VALUES (1, NULL , 'Test', 'User', 0);
 
 INSERT INTO t_account_number (id, iban, bank_number, account_number, control_sum)

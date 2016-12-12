@@ -23,7 +23,7 @@ public class PaymentFilter {
     private PaymentStatus status = PaymentStatus.BOTH;
 //    private LocalDateTime from;
 //    private LocalDateTime to;
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinTable(
             name="t_payment_filter_category",
             joinColumns = @JoinColumn(name="payment_filter_id", referencedColumnName="ID"),

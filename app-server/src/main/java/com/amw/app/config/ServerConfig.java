@@ -45,7 +45,6 @@ public class ServerConfig {
     }
 
     @Bean
-    @DependsOn("flyway")
     public EntityManagerFactory entityManagerFactory() throws Throwable {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(jpaVendorAdapter());

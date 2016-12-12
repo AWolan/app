@@ -2,7 +2,7 @@ CREATE TABLE `t_person` (
   `id` bigint(20) NOT NULL,
   `company_name` varchar(255) DEFAULT NULL,
   `first_name` varchar(255) DEFAULT NULL,
-  `last_lame` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,
   `is_company` bit(1) NOT NULL,
   PRIMARY KEY (`id`)
 );

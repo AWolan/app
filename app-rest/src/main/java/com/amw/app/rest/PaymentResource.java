@@ -1,6 +1,6 @@
 package com.amw.app.rest;
 
-import com.amw.app.model.Payment;
+import com.amw.app.dto.PaymentDTO;
 import com.amw.app.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -22,9 +22,9 @@ public class PaymentResource {
     private PaymentService paymentService;
 
     @GetMapping(value = "filter/{filterId}/{from}/{to}", produces = APPLICATION_JSON_VALUE)
-    public List<Payment> getList(@PathVariable("filterId") Long filterId,
-                                 @PathVariable("from") @DateTimeFormat(pattern = "yyyy-MM-dd=HH:mm") LocalDateTime from,
-                                 @PathVariable("to") @DateTimeFormat(pattern = "yyyy-MM-dd=HH:mm") LocalDateTime to) {
+    public List<PaymentDTO> getList(@PathVariable("filterId") Long filterId,
+                                    @PathVariable("from") @DateTimeFormat(pattern = "yyyy-MM-dd=HH:mm") LocalDateTime from,
+                                    @PathVariable("to") @DateTimeFormat(pattern = "yyyy-MM-dd=HH:mm") LocalDateTime to) {
         return paymentService.getListBy(filterId, from, to);
     }
 

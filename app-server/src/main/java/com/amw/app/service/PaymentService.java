@@ -1,6 +1,6 @@
 package com.amw.app.service;
 
-import com.amw.app.model.Payment;
+import com.amw.app.dto.PaymentDTO;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,5 +13,5 @@ public interface PaymentService {
 
 //    List<Payment> getListBy(Long filterId);
 
-    List<Payment> getListBy(Long filterId, LocalDateTime from, LocalDateTime to);
+    List<PaymentDTO> getListBy(Long filterId, LocalDateTime from, LocalDateTime to);
 }

@@ -137,7 +137,7 @@ public class AccountNumber {
     }
 
     private String getValue(Long value, int length) {
-        String format = String.format("%%0%d", length);
+        String format = String.format("%%0%dd", length);
         return String.format(format, value);
     }
 }

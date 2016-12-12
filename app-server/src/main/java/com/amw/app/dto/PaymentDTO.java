@@ -1,45 +1,24 @@
-package com.amw.app.model;
+package com.amw.app.dto;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import java.util.List;
 
-/**
- * Gathers information about payment.
- */
-@Entity
-@Table(name = "t_payment")
-public class Payment {
+public class PaymentDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name = "group_id")
-    private PaymentGroup group;
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name = "target_id")
-    private Account target;
-    @ManyToOne(fetch=FetchType.EAGER)
-    @JoinColumn(name = "source_id")
-    private Account source;
+    private String groupName;
+    private AccountDTO target;
+    private AccountDTO source;
     private Double amount;
     private Currency currency;
     private String name;
     private String details;
-    @Column(name = "execution_date")
     private LocalDateTime executionDate;
-    @Column(name = "plan_date")
     private LocalDateTime planDate;
-    @ManyToMany(fetch=FetchType.EAGER)
-    @JoinTable(
-            name="t_payment_category",
-            joinColumns = @JoinColumn(name="payment_id", referencedColumnName="ID"),
-            inverseJoinColumns = @JoinColumn(name="category_id", referencedColumnName="ID"))
-    private List<Category> categoryList;
+    private List<CategoryDTO> categoryList;
 
-    public Payment() {
+    public PaymentDTO() {
     }
 
     public Long getId() {
@@ -50,27 +29,27 @@ public class Payment {
         this.id = id;
     }
 
-    public PaymentGroup getGroup() {
-        return group;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setGroup(PaymentGroup group) {
-        this.group = group;
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
-    public Account getTarget() {
+    public AccountDTO getTarget() {
         return target;
     }
 
-    public void setTarget(Account target) {
+    public void setTarget(AccountDTO target) {
         this.target = target;
     }
 
-    public Account getSource() {
+    public AccountDTO getSource() {
         return source;
     }
 
-    public void setSource(Account source) {
+    public void setSource(AccountDTO source) {
         this.source = source;
     }
 
@@ -122,11 +101,11 @@ public class Payment {
         this.planDate = planDate;
     }
 
-    public List<Category> getCategoryList() {
+    public List<CategoryDTO> getCategoryList() {
         return categoryList;
     }
 
-    public void setCategoryList(List<Category> categoryList) {
+    public void setCategoryList(List<CategoryDTO> categoryList) {
         this.categoryList = categoryList;
     }
 }
