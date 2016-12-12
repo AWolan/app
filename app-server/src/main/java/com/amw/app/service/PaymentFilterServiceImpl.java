@@ -19,7 +19,7 @@ public class PaymentFilterServiceImpl implements PaymentFilterService {
     }
 
     @Override
-    public PaymentFilter saveFilter(PaymentFilter filter) {
+    public PaymentFilter saveFilter(Long ownerId, PaymentFilter filter) {
         return paymentFilterRepository.save(filter);
     }
 

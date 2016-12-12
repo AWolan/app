@@ -7,7 +7,7 @@ import java.util.List;
 public interface PaymentFilterService {
     PaymentFilter getById(Long id);
 
-    PaymentFilter saveFilter(PaymentFilter filter);
+    PaymentFilter saveFilter(Long ownerId, PaymentFilter filter);
 
     List<PaymentFilter> getList(Long ownerId);
 }
