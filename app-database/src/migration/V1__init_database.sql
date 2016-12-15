@@ -45,7 +45,7 @@ CREATE TABLE `t_payment` (
   `group_id` bigint(20) DEFAULT NULL,
   `source_id` bigint(20) DEFAULT NULL,
   `target_id` bigint(20) DEFAULT NULL,
-  `amount` double DEFAULT NULL,
+  `value` double DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `details` varchar(255) DEFAULT NULL,

@@ -12,7 +12,7 @@ INSERT INTO t_account (id, number_id, owner_id, currency)
 INSERT INTO t_category (id, name)
   VALUES (1, 'C1');
 
-INSERT INTO t_payment (id, group_id, source_id, target_id, amount, currency, name, details, execution_date, plan_date)
+INSERT INTO t_payment (id, group_id, source_id, target_id, value, currency, name, details, execution_date, plan_date)
   VALUES (1, NULL, 1, 2, 100, 'PLN', 'P1', '', '2016-11-29', NULL);
 
 INSERT INTO t_payment_category (payment_id, category_id)
